@@ -1,19 +1,9 @@
 from RPA.Browser.Selenium import Selenium
+from robocorp.tasks import task
 
-from selenium.common.exceptions import ElementClickInterceptedException
-from time import sleep
-from robot.api import logger
-from datetime import datetime, timedelta
-
-import re
-import pandas as pd
-import os
-
-# from utils import download_images
 from utils import Utils
 from get_infos import GetInfos
 from access_infos import AcessInfos
-
 
 class NtyInfos:
     def __init__(self):
@@ -32,6 +22,10 @@ class NtyInfos:
         df_infos.drop('image_src', axis=1, inplace=True)
         df_infos.to_excel("nyt_news_info.xlsx", index=False)
         
-    
-nyt = NtyInfos()
-nyt.main()
+@task
+def main():  
+    nyt = NtyInfos()
+    nyt.main()
+
+if __name__ == "__main__":
+    main()

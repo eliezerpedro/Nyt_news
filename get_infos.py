@@ -1,8 +1,11 @@
+# from RPA.Robocorp.WorkItems import WorkItems
+
 import pandas as pd
+import re
+
 from robot.api import logger
 from datetime import datetime, timedelta
-import re
-# from utils import last_date_months
+
 from utils import Utils
 import config
 
@@ -10,8 +13,14 @@ class GetInfos():
     def __init__(self, browser):
         self.browser = browser
         self.utils = Utils(self.browser)
+        # self.wi = WorkItems()
 
     def load_infos(self):
+
+        # self.wi.get_input_work_item()
+        # search_term = wi.get_work_item_variable("search_term")
+        # months = wi.get_work_item_variable("months")
+
         list_news_xpath = "xpath://ol[@data-testid='search-results']//li"
         current_year = datetime.now().year
         aux = 1
@@ -52,6 +61,7 @@ class GetInfos():
                             logger.error(f"Failed to load this News. erro {e}")
 
                 if self.utils.last_date_months(config.months) > data_obj:
+                # if self.utils.last_date_months(months) > data_obj:
                     break
 
             except Exception as e:
@@ -75,6 +85,7 @@ class GetInfos():
             phrase_to_count = title + description
             phrase_to_count = phrase_to_count.lower()
             count_search_phrase = phrase_to_count.count(config.search_term.lower())
+            # count_search_phrase = phrase_to_count.count(search_term.lower())
             regex_coin = re.compile(r'\$(\d+\.\d+|\d+(,\d+)*(\.\d+)?)|(\d+)\s*dollars|\d+\s*USD')
             amount_money = bool(re.search(regex_coin, phrase_to_count))
 
