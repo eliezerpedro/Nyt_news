@@ -60,7 +60,7 @@ This challenge only uses Python with the RPA Framework's Selenium library. I div
 ```bash
 
 pip  install  rpaframework
-pip install pandas
+pip  install  pandas
 
 ```
 
