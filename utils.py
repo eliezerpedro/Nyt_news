@@ -1,6 +1,9 @@
 from datetime import datetime, timedelta
+from robot.api import logger
 import re
 import os
+
+from locators import utils_locators as utilsloc
 
 class Utils():
     def __init__(self, browser):
@@ -19,8 +22,7 @@ class Utils():
 
     
     def last_date(self):
-        last_date_xpath = "xpath://ol[@data-testid='search-results']//li"
-        news_list = self.browser.find_elements(last_date_xpath)
+        news_list = self.browser.find_elements(utilsloc.last_date_xpath)
         current_year = datetime.now().year
 
         for x in range(len(news_list)):
@@ -46,7 +48,6 @@ class Utils():
                         pass  
 
         return True
-
     
     def download_images(self, df_infos):
 

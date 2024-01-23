@@ -44,6 +44,7 @@ This challenge only uses Python with the RPA Framework's Selenium library. I div
 
 - Python 3.x
 - RPA Framework
+- Pandas
 
   
 
@@ -64,7 +65,7 @@ pip  install  rpaframework
 
   
 
-3. Change the `config.py` file with the desired values of search phrase, news category, and number of months.
+3. Change the work-items.json file with the desired values for the search term, news category, and number of months.
 
 4. Run the Python script 
 
