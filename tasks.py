@@ -20,7 +20,7 @@ class NtyInfos:
 
         self.utils.download_images(df_infos)
         df_infos.drop('image_src', axis=1, inplace=True)
-        df_infos.to_excel("nyt_news_info.xlsx", index=False)
+        df_infos.to_excel("output/nyt_news_info.xlsx", index=False)
         
 @task
 def main():  

@@ -60,7 +60,7 @@ class Utils():
         for index, row in df_imagens.iterrows():
             try:
                 self.browser.go_to(row['image_src'])
-                image_path = f"pictures/{(row['image_filename'])}.png"
+                image_path = f"output/{(row['image_filename'])}.png"
                 self.browser.capture_element_screenshot("tag:img",image_path)
             except Exception as e:
                 logger.error(f"Failed to save image: {row['image_filename']}. Error: {e}") 
