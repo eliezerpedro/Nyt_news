@@ -8,9 +8,10 @@ from access_infos import AcessInfos
 class NtyInfos:
     def __init__(self):
         self.browser = Selenium()
-        self.access_infos = AcessInfos(self.browser)
-        self.get_infos = GetInfos(self.browser)
         self.utils = Utils(self.browser)
+        self.access_infos = AcessInfos(self.browser, self.utils)
+        self.get_infos = GetInfos(self.browser, self.utils)
+        
     
     def main(self):
         
